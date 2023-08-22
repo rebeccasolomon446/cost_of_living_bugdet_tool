@@ -1,9 +1,11 @@
+
+
 function addInfoToTable(event) {
   // creating new <tr> and appending it to the last tag in the <table> tag
   const newRow = document.createElement("tr");
   // setting the inutted item and budget value to a variable
-  const inputtedItem = document.getElementById("item").value;
-  const inputtedBudget = document.getElementById("budget-num").value;
+  let inputtedItem = document.getElementById("item").value;
+  let inputtedBudget = document.getElementById("budget-num").value;
   // giving the new <tr> tag an id name that includes the inputted value to make each <tr> unique to each input
   newRow.setAttribute("id", `input-${inputtedItem}`);
   // add the users inut to the table
@@ -21,5 +23,14 @@ function addInfoToTable(event) {
   event.preventDefault();
 }
 
+let sum = 0;
+function incrementBudgetTotal() {
+  let inputtedBudget = document.getElementById("budget-num");
+  let num = Number(inputtedBudget.value)
+  sum += num;
+  document.getElementById("budget-total").innerHTML = `Total: ${sum}`;
+}
+
 const form = document.getElementById("form-button");
 form.addEventListener("click", addInfoToTable);
+form.addEventListener("click", incrementBudgetTotal);

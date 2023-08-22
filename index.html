@@ -10,7 +10,7 @@
   <body>
     <h1>Cost Of Living Budgeting</h1>
 
-    <section>
+    <div>
       <form id="form">
         <label for="item">Enter Item:</label>
         <input type="text" id="item" name="item" /><br /><br />
@@ -18,16 +18,23 @@
         <input type="number" id="budget-num" name="budget_num" /><br /><br />
         <button type="submit" id="form-button">Add</button><br><br>
       </form>
-    </section>
+    </div>
 
-    <section>
+    <div>
       <table id="table">
         <tr id="row-titles">
           <th class="table-h">Item</th>
           <th class="table-h">Budget</th>
         </tr>
       </table>
-    </section>
+      <br>
+      <br>
+    </div>
+
+    <div>
+      <p id="budget-total">Total: </p>
+    </div>
+    
     <footer>
         <script src="main.js"></script>
     </footer>
