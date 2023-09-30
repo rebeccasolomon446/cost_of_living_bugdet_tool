@@ -37,23 +37,28 @@ form.addEventListener("click", incrementBudgetTotal);
 // if statement is used to check whether the tag name clicked is <td> and within a <tr> tag
 // its only then will the event listener return the id.
 // without checking the parent element, clicking on the row will return 'undefined'
-function getRowId() {
-  const table = document.getElementById('table');
 
-  table.addEventListener('click', function (event) {
+// when edit button is clicked, getRowId function triggered
+//but currently function only works when row is clicked on
+// need to find a way to get the ids of all rows in on the table, without a row needing to be clicked on
+
+let rowId = "";
+function getRowId() {
+  document.addEventListener('click', function (event) {
     if (event.target.tagName === 'TD' && event.target.parentElement.tagName === 'TR') {
       rowId += event.target.parentElement.id;
-      console.log(event.target.parentElement.id);
-      console.log(rowId);
+      console.log(event.target.parentElement.id); 
     }
   });
 }
-let rowId = "";
 document.addEventListener('DOMContentLoaded', getRowId);
+
+
 
 // when row in table is clicked, row is deleted
 function deleteRow() {
-  document.getElementById(rowId).remove();
+  rowId ? document.getElementById(rowId).remove() : null;
+  console.log('second click');
 }
 table.addEventListener('click', deleteRow);
 
