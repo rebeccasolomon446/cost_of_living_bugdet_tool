@@ -1,6 +1,6 @@
 const formEl = document.querySelector("form");
 const tbodyEl = document.querySelector("tbody");
-
+const tableEl = document.querySelector("table");
 // function to add user input to table
 function addInfoToTable(e) {
   e.preventDefault();
@@ -10,9 +10,20 @@ function addInfoToTable(e) {
   <tr>
       <td>${item}</td>
       <td>${budgetVal}</td>
-      <td><button id="delete-btn">Delete</button></td>
+      <td><button classList="delete-btn">Delete</button></td>
   </tr>
   `
 }
 
-formEl.addEventListener("submit", addInfoToTable)
+// function to delete row
+function deleteRow(e) {
+  if(!e.target.classList.contains("delete-btn")){
+    null;
+    
+  }
+  const btn = e.target;
+  btn.closest("tr").remove(); 
+}
+
+formEl.addEventListener("submit", addInfoToTable);
+tableEl.addEventListener("click", deleteRow);
