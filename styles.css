@@ -1,11 +1,54 @@
-#table {
-    font-family: Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
-    width: 100%;   
+@font-face {
+    font-family: 'Glacial Indifference';
+    src: url('glacial-indifference/GlacialIndifference-Regular.otf');
 }
 
-#table td, #table ht {
-    border: 1px solid #ddd;
+
+body {
+    background-color: rgb(229, 229, 229);
+    font-family: 'Glacial Indifference';
+    margin: 0;
+    padding: 0;
+}
+
+/* header styling */
+
+h1 {
+    text-align: left;
+    color: white;
+    font-size:45px;
+    padding: 0 0 10px 110px;
+    
+}
+
+#header {
+    height: 100%;
+    background-color: #737373;
+    padding-top: 20px;
+    width: 100%;  
+}
+
+.logo img{
+    position:absolute;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+/* table styling */
+table {
+    text-align: center;
+    width: 95%;
+}
+
+#table {
+    border-collapse: collapse;
+    margin: 0 auto;
+    border-radius: 4px;
+    /* border-radius alone didnt work, added this to tell browser to hide content beyonf the rounded corners */
+    overflow: hidden;
+}
+
+#table td, #table th {
     padding: 8px;
 }
 
@@ -13,14 +56,67 @@
     background-color: #f2f2f2;
 }
 
+#table tr:nth-child(odd){
+    background-color: #e1e1e1;
+}
+
+
 #table tr:hover {
-    background-color: #ddd;
+    background-color: #d0cece;
 }
 
 #table th {
     padding-top: 12px;
     padding-bottom: 12px;
-    text-align: left;
-    background-color: rgb(124, 124, 190);
+    text-align: center;
+    background-color: #8c8a8a;
     color: white;   
 }
+
+/* placing form and table next to each other */
+#table-section{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+#form-section {
+    background-color: rgb(157, 190, 238);
+    width: 50%;
+    float:left;
+    text-align: center;
+}
+
+#results{
+    background-color: orange;
+    margin-top: 50%;
+}
+
+/* delete button styling */
+button {
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    font-size: 7px;
+    border-radius: 500px;
+    transition-property: background-color,border-color,color,box-shadow,filter;
+    transition-duration: .3s;
+    border: 1px transparent;
+    letter-spacing: 1px;
+    min-width: 50px;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-align: center;
+    padding: 6px 8px 12px 8px;
+    height: 0;
+    color: ;
+    background-color: #cecfd1;
+}
+
+button:hover {
+    color: #fff;
+    background-color: #616467;
+}
+

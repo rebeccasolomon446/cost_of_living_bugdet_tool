@@ -6,7 +6,7 @@ const tableEl = document.querySelector("table");
 const budget = document.getElementById("monthly-budget");
 const grossBudget = document.getElementById("gross-budget");
 // function to add user input to table
-function addInfoToTable(e) {
+function submitForm(e) {
   e.preventDefault();
   const item = document.getElementById("item").value;
   const budgetVal = document.getElementById("budget-num").value;
@@ -17,6 +17,7 @@ function addInfoToTable(e) {
       <td><button class="delete-btn">Delete</button></td>
   </tr>
   `
+  formEl.reset(); //resets the form so no text in input box after each submit
 }
 
 // function to delete row
@@ -29,18 +30,29 @@ function deleteRow(e) {
 }
 
 // function to update budget value
+let sum = 0;
 function updateBudget() {
-  let sum = 0;
-  const userTotalBudget = document.getElementById("total-budget").value;
-  
   const inputBudget = document.getElementById("budget-num").value;
   const finalBudget = document.getElementById("gross-budget");
-  // after final budget value is inputted once, it is removed from the form??
-
   sum += Number(inputBudget);
-  finalBudget.innerHTML = `Remaining Budget : ${userTotalBudget - sum}`
+  finalBudget.innerHTML = `Total Budgeted : ${sum}`;
 }
 
-formEl.addEventListener("submit", addInfoToTable);
+// function to set total monthly budget
+totalSum = 0;
+function setTotalBudget() {
+  const total = document.getElementById("total-monthly-budget").value;
+  const pageTotal = document.getElementById("total-budget");
+  // remove total monthly budget input 
+  const input = document.getElementById("total-budget-label");
+  const label = document.getElementById("total-monthly-budget");
+  totalSum += Number(total);
+  pageTotal.innerHTML = `This month's income : ${totalSum}`;
+  input.remove();
+  label.remove();
+}
+
+formEl.addEventListener("submit", submitForm);
 formEl.addEventListener("submit", updateBudget);
+formEl.addEventListener("submit", setTotalBudget);
 tableEl.addEventListener("click", deleteRow);
