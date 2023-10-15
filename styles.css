@@ -34,6 +34,23 @@ h1 {
     margin-left: 10px;
 }
 
+/* tagline section styling */
+#intro {
+    text-align: center;
+    /* padding-bottom: 1000px; */
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+
 /* table styling */
 table {
     text-align: center;
@@ -81,17 +98,68 @@ table {
     justify-content: center;
 }
 
-
+/* form styling */
 #form-section {
-    background-color: rgb(157, 190, 238);
-    width: 50%;
+    /* background-color: rgb(247, 247, 247); */
+    width: 40%;
     float:left;
     text-align: center;
+    border-radius: 2px;
+    padding:20px;
+    background-color: white;
 }
 
-#results{
-    background-color: orange;
-    margin-top: 50%;
+
+
+#form-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#form-section li {
+    display: block;
+	border:1px solid #DDDDDD;
+	margin-bottom: 30px;
+	border-radius: 3px;
+}
+
+#form-section li > label {
+    display: block;
+	float: left;
+	margin-top: -19px;
+	background: #FFFFFF;
+	height: 14px;
+	padding: 2px 5px 2px 5px;
+	color: #B9B9B9;
+	font-size: 14px;
+	overflow: hidden;
+}
+
+#form-section li > span {
+    background-color: #F3F3F3;
+    display: block;
+    padding: 3px;
+    margin: 0 -9px -9px -9px;
+    text-align: center;
+    color: #C0C0C0;
+    font-size: 11px; 
+}
+
+#form-section input {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 100%;
+    display: block;
+    outline: none;
+    border: none;
+    height: 25px;
+    font-size: 15px;
+    padding: 0;
+}
+
+#form-section input:focus {
 }
 
 /* delete button styling */
@@ -111,12 +179,18 @@ button {
     text-align: center;
     padding: 6px 8px 12px 8px;
     height: 0;
-    color: ;
     background-color: #cecfd1;
 }
 
 button:hover {
     color: #fff;
     background-color: #616467;
+}
+
+/* results section */
+#results{
+    background-color: #891515;
+    padding: 20px 0 20px 20px;
+    width: 40%;
 }
 

@@ -1,4 +1,4 @@
-const formEl = document.querySelector("form");
+const formEl = document.getElementById("form-section");
 const tbodyEl = document.querySelector("tbody");
 
 const tableEl = document.querySelector("table");
@@ -17,7 +17,7 @@ function submitForm(e) {
       <td><button class="delete-btn">Delete</button></td>
   </tr>
   `
-  formEl.reset(); //resets the form so no text in input box after each submit
+  formEl.reset; //resets the form so no text in input box after each submit
 }
 
 // function to delete row
@@ -26,6 +26,13 @@ function deleteRow(e) {
     return;
   }
   const btn = e.target;
+  const finalBudget = document.getElementById("gross-budget");
+  let row = btn.closest("tr");
+  let cell = row.querySelector("td:nth-child(2)");
+  let cellData = cell.textContent;
+  sum -= cellData;
+  // to subtract the dudget from the total when row is deleted
+  finalBudget.innerHTML = `Total Budgeted : ${sum}`;
   btn.closest("tr").remove(); 
 }
 
@@ -36,6 +43,7 @@ function updateBudget() {
   const finalBudget = document.getElementById("gross-budget");
   sum += Number(inputBudget);
   finalBudget.innerHTML = `Total Budgeted : ${sum}`;
+  console.log("hi");
 }
 
 // function to set total monthly budget
@@ -44,12 +52,10 @@ function setTotalBudget() {
   const total = document.getElementById("total-monthly-budget").value;
   const pageTotal = document.getElementById("total-budget");
   // remove total monthly budget input 
-  const input = document.getElementById("total-budget-label");
-  const label = document.getElementById("total-monthly-budget");
+  const input = document.getElementById("one-time-input");
   totalSum += Number(total);
   pageTotal.innerHTML = `This month's income : ${totalSum}`;
   input.remove();
-  label.remove();
 }
 
 formEl.addEventListener("submit", submitForm);
